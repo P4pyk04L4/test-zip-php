@@ -17,11 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Chemin complet du fichier ZIP
     $zipFilePath = $targetDir . 'files.zip';
 
+
     // Créer une instance de ZipArchive
     $zip = new ZipArchive();
 
     // Ouvrir l'archive ZIP
     if ($zip->open($zipFilePath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === true) {
+        // Mot de passe
+
+
         // Parcourir tous les fichiers reçus
         foreach ($_FILES['uploadFile']['name'] as $index => $fileName) {
             $fileTmpPath = $_FILES['uploadFile']['tmp_name'][$index];
@@ -44,6 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // Fermer le fichier ZIP
+        $zip->setPassword('passW0rd');    
+
         $zip->close();
 
         // Supprimer les fichiers temporaires
