@@ -16,28 +16,11 @@
     <div class="container-fluid" id="container">
         <div class="mx-auto col-sm-12 col-md-10 col-lg-8 bg-white" id="formulaire">
             
-        <h1>Envoi de fichiers multiples</h1>
-            
-            <form action="upload.php" method="post" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <label for="prenom" class="form-label">Prénom</label>
-                    <input type="text" class="form-control" name="prenom" id="prenom" placeholder="Entrez votre prénom">
-                </div>
-
-                <div class="mb-3">
-                    <label for="nom" class="form-label">Nom</label>
-                    <input type="text" class="form-control" name="nom" id="nom" placeholder="Entrez votre nom">
-                </div>
-
-                <div class="mb-3">
-                    <label for="uploadFile" class="form-label my-3">Choisir un ou plusieurs fichiers à nous transmettre, puis cliquer sur "Envoyer".</label>
-                    <input type="file" class="form-control my-2" name="uploadFile[]" multiple>
-                </div>
+            <h1>Envoi de fichiers multiples</h1>
                 
-                <div class="text-center py-2">
-                    <button type="submit" class="btn btn-primary ">Envoyer</button>
-                </div>
-                </form>
+            <div class="mb-3">
+                <p>Les fichiers ont été téléchargés et enregistrés dans un fichier ZIP avec succès.</p>
+            </div>          
         </div>
     </div>
         

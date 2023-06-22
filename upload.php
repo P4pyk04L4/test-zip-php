@@ -1,6 +1,15 @@
 <?php
 // Vérifier si le formulaire a été soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Verifications de base
+    date_default_timezone_set('Europe/Paris');
+
+    $nom = strtoupper(htmlspecialchars($_POST['nom']));
+    $prenom = htmlspecialchars($_POST['prenom']);
+    $today = date("y_d_m_His");
+
+    $zipFileName = $nom . '_' . $prenom . '_' . $today . '.zip';
+
     // Répertoire de destination pour enregistrer les fichiers
     $targetDir = 'uploads/';
     // Répertoire pour les fichiers temporaires
@@ -15,7 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Chemin complet du fichier ZIP
-    $zipFilePath = $targetDir . 'files.zip';
+    // $zipFilePath = $targetDir . 'files.zip';
+    $zipFilePath = $targetDir . $zipFileName;
 
 
     // Créer une instance de ZipArchive
@@ -60,7 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
-        echo 'Les fichiers ont été téléchargés et enregistrés dans un fichier ZIP avec succès.';
+        include 'reussite.php';
+        // echo 'Les fichiers ont été téléchargés et enregistrés dans un fichier ZIP avec succès.';
     } else {
         echo 'Impossible de créer ou d\'ouvrir le fichier ZIP.';
     }
