@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $nom = strtoupper(htmlspecialchars($_POST['nom']));
     $prenom = htmlspecialchars($_POST['prenom']);
-    $today = date("y_d_m_His");
+    $today = date("Y_m_d_His");
 
     $zipFileName = $nom . '_' . $prenom . '_' . $today . '.zip';
 
