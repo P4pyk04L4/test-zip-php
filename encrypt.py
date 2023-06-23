@@ -1,13 +1,13 @@
-#!/bin/python
+#!C/MAMP/bin/python/Python311/python.exe
 import sys
 import pyzipper
 
 secret_password = b'lost art of keeping a secret'
 
 # Récupérer la valeur de la variable depuis les arguments de ligne de commande
-variable_python = sys.argv[0]
-# Chemin du fichier zip à ajouter à l'archive
+nom_archive_recue = sys.argv[0]
 
+# Chemin du fichier zip à ajouter à l'archive
 fichier_zip_a_ajouter = './uploads/POIROT_Hercule_2023_06_23_123926.zip'
 
 with pyzipper.AESZipFile('./uploads/chiffre/POIROT_Hercule_2023_06_23_123926.zip',

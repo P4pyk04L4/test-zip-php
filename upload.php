@@ -35,7 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($zip->open($zipFilePath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === true) {
         // Mot de passe
 
-
         // Parcourir tous les fichiers reçus
         foreach ($_FILES['uploadFile']['name'] as $index => $fileName) {
             $fileTmpPath = $_FILES['uploadFile']['tmp_name'][$index];
@@ -52,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if (move_uploaded_file($fileTmpPath, $tempFilePath)) {
                         // Ajouter le fichier temporaire au fichier ZIP
                         $zip->addFile($tempFilePath, $fileName);
+                        $zip->setEncryptionName($fileName, ZipArchive::EM_AES_256);
                     }
                 }
             }
