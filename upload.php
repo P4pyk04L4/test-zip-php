@@ -72,6 +72,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         include 'reussite.php';
         // echo 'Les fichiers ont été téléchargés et enregistrés dans un fichier ZIP avec succès.';
+
+        // Exécuter le script Python
+        $command = "python ./encrypt.py";
+        $output = shell_exec($command);
+        echo $output;
+
+        // $command = "python ./test.py";
+        // $output = shell_exec($command);
+        // echo $output;
     } else {
         echo 'Impossible de créer ou d\'ouvrir le fichier ZIP.';
     }
