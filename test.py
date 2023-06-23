@@ -1,0 +1,4 @@
+#!/bin/python
+
+
+print('<html><head></head><body>This is a test</body></html>')
